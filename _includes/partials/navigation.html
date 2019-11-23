@@ -1,12 +1,14 @@
 <nav class="card links">
     <h2 class="text-center">Quick links</h2>
+    <a href="/">Home page</a>
     <a href="{{site.posts.first.url}}">Latest post</a>
 
     <hr>
 
     <h2 class="text-center">Categories</h2>
-    {% for item in site.categories %}
-    <a href="/categories/{{category}}">{{category}}</a>
+    {% for category in site.categories %}
+        {% capture name %}{{ category | first }}{% endcapture %}
+        <a href="/categories/{{name | slugify}}">{{name}}</a>
     {% endfor %}
 
     <hr>

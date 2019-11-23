@@ -3,6 +3,7 @@ name: "VCZ Blog"
 description: "Simplicity-powered blog from Vincenzo Scalzi - Web Performance Addict && Engineer"
 
 permalink: "pretty"
+excerpt_separator: "<!-- READ MORE -->"
 paginate: 10
 paginate_path: "page/:num"
 
