@@ -1,0 +1,21 @@
+url: "https://blog.vcz.fr"
+name: "VCZ Blog"
+description: "Simplicity-powered blog from Vincenzo Scalzi - Web Performance Addict && Engineer"
+
+permalink: "pretty"
+paginate: 10
+paginate_path: "page/:num"
+
+author:
+  name: Vincenzo Scalzi
+  display_name: VCZ
+  web: https://vcz.fr
+  twitter:
+    username: vcz_fr
+    card: summary
+  github: vcz-fr
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
