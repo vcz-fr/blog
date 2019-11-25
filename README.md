@@ -5,7 +5,7 @@ Siplicity-powered blog!
 ## The motivation
 
 Who said a blog has do be bulky and heavy? Why should we trust third party solutions to express our thoughts when
-everything is -almost- readily avaiable?
+everything is -almost- readily available?
 
 Introducing VCZ Blog with an age-old pledge: a fast and reliable experience with no tracking on my side. Ever.
 

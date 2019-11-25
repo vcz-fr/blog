@@ -15,21 +15,21 @@ date: "2017-07-18"
 _In three months, I will be a web engineer…_
 
 After decades of computer science advances, there still have hurdles to overcome to make the field move forward. The
-future for engineers of all domains has never been so bright but it would be unadvisable to fret; it is not always what
+future for engineers of all domains has never been so bright but it would be inadvisable to fret; it is not always what
 one might expect.
 
 <!-- READ MORE -->
 
 The web is a recent newcomer in the history of programming. So much that the state of the art evolves quickly and in a
 breaking fashion. Unfortunately, this means most applications are and will never be compliant with the latest trends.
-Then comes the lack of performance and quality… you know the story.
+Then comes the lack of performance and quality... you know the story.
 
 A key issue today is legacy systems. Legacy is everywhere. It is unlikely to work for a big company that has an
 application with no legacy, monolith or spaghetti code. This means an engineer might end up improving or increasing
 legacy code.
 
 Is legacy a bad thing? Not always. When it is under control and well documented, you can get around it. Sometimes, there
-is a need for a hack to avoid an edge case or to release a prodct faster. That said, keeping things under control is not
+is a need for a hack to avoid an edge case or to release a product faster. That said, keeping things under control is not
 an easy task and as with any debt, it must be repaid sooner or later.
 
 ## Did I really sign up for this?
@@ -54,7 +54,7 @@ to handle ethics in our daily routine?
 
 Testimonies of groups or persons feeling discriminated can be found everywhere around us. You can yourself discriminate
 unintentionally by how you act, how you learned to behave in society. It is hard to point a precise individual to blame,
-though. The way one grows up shapes their personnality and perception of the world surrounding them.
+though. The way one grows up shapes their personality and perception of the world surrounding them.
 
 We must not label anyone, regardless of their gender, sexual orientation, ethnicity, religious or political beliefs or
 any other characteristic. This is an insanely difficult task as it requires to question the way we think and we process
@@ -64,4 +64,4 @@ erase.
 
 We need to rethink our inner workings so that everything goes smooth between systems and between humans. The gap between
 generations has never been wider and we need to act soon if we wish to have something positive to pass on to our
-descendents.
+descendants.
