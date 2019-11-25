@@ -6,7 +6,12 @@ layout: default
     <h1>{{page.title}}</h1>
 
     <p>
-        Posted on {{page.date | date: "%A %B %d, %Y"}}
+        Posted on {{page.date | date: "%A %B %d, %Y"}}<br>
+        Category: 
+        {% for category in page.categories %}
+            <a href="/categories/{{category | slugify}}">{{category}}</a>
+        {% endfor %}<br>
+        Tags: <b>{{page.tags | join: "</b> ; <b>"}}</b>
     </p>
     <p>
         <span class="purple">Next:</span>
@@ -27,6 +32,6 @@ layout: default
     </p>
 </div>
 
-<div class="card">
+<div class="card" id="article">
     {{ content }}
 </div>
