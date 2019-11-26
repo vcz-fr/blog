@@ -12,6 +12,9 @@ date: "2018-02-10"
 
 ***
 
+![The official jQuery Logo](/assets/img/posts/20180210/header.png)
+_The official jQuery Logo_
+
 _It’s not you, it’s me._
 
 ## A bit of history
@@ -63,6 +66,9 @@ for the most complex and the famous [document.getElementsByTagName()](https://de
 [document.getElementsByClassName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName){:rel="nofollow"}
 and [document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById){:rel="nofollow"}
 for the 80+% remaining cases. Also: you can chain them in very specific circumstances[^1].
+
+![Some performance statistics](/assets/img/posts/20180210/comparison.png)
+_These samples have run on jsPerf on the HTML of my website. jQuery v1.11.1 is used as the reference_
 
 Even though they don’t have the exact same behavior, the alternatives ask for less network and system resources. Also
 note that you can polyfill for the left out browsers like Internet Explorer, which happens to have lost 12% of its
