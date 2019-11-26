@@ -12,7 +12,7 @@ date: "2017-07-18"
 
 ***
 
-_In three months, I will be a web engineer…_
+_In three months, I will be a web engineer..._
 
 After decades of computer science advances, there still have hurdles to overcome to make the field move forward. The
 future for engineers of all domains has never been so bright but it would be inadvisable to fret; it is not always what
