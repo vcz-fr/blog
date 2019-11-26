@@ -38,3 +38,14 @@ active: index
         Have a nice visit!
     </p>
 </div>
+
+<div class="card">
+    <h2><a href="{{ site.posts.first.url }}">Latest post: {{ site.posts.first.title }}</a></h2>
+    <p>
+        Posted {{ site.posts.first.date | date: "%A %B %d, %Y" }}
+    </p>
+
+    <blockquote>{{site.posts.first.excerpt}}</blockquote>
+
+    <p><em><a href="{{ site.posts.first.url }}">Read more&hellip;</a></em></p>
+</div>
