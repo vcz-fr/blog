@@ -30,8 +30,9 @@ ago, when basic features were implemented very differently.
 
 From then on, jQuery helped creating experiences that were increasingly complex, thanks to the abstraction layer it
 added to the DOM manipulation, event management and AJAX requests. We even started to see jQuery based libraries appear
-everywhere. Then people gathered their ideas in the same place, the [jQuery Plugin Registry](http://plugins.jquery.com/)
-or [NPM](https://www.npmjs.com/), which led the following web revolution that we will keep for another article.
+everywhere. Then people gathered their ideas in the same place, the [jQuery Plugin Registry](http://plugins.jquery.com/){:rel="nofollow"}
+or [NPM](https://www.npmjs.com/){:rel="nofollow"}, which led the following web revolution that we will keep for another
+article.
 
 The rest is recent history, from the JavaScript community that finds rarities and oddities among the terrifying amount
 of packages that appear every day, the makers that use these findings to build even more complex systems to the new
@@ -55,28 +56,28 @@ Apart from that, most of the developers around me come up with the same reason a
 technology: the selectors. Not the browser support, the added benefit of a layer on top of the DOM, event handling,
 animation and plugins. I personally defend jQuery when its inclusion is highly beneficial in terms of productivity and
 usefulness in a project. Plus, the Slim version is a very welcome idea. Still, if you only need jQuery for the
-selectors, the same team did a pretty good job with [Sizzle](http://sizzlejs.com/).
+selectors, the same team did a pretty good job with [Sizzle](http://sizzlejs.com/){:rel="nofollow"}.
 
-You can also turn to Vanilla for your selectors: [document.querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
-for the most complex and the famous [document.getElementsByTagName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName),
-[document.getElementsByClassName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
-and [document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) for the 80+%
-remaining cases. Also: you can chain them in very specific circumstances[^1].
+You can also turn to Vanilla for your selectors: [document.querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll){:rel="nofollow"}
+for the most complex and the famous [document.getElementsByTagName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName){:rel="nofollow"},
+[document.getElementsByClassName()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName){:rel="nofollow"}
+and [document.getElementById()](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById){:rel="nofollow"}
+for the 80+% remaining cases. Also: you can chain them in very specific circumstances[^1].
 
 Even though they don’t have the exact same behavior, the alternatives ask for less network and system resources. Also
 note that you can polyfill for the left out browsers like Internet Explorer, which happens to have lost 12% of its
-market share between the end of 2016 and the end of 2017 according to [NetMarketShare](https://netmarketshare.com/).
+market share between the end of 2016 and the end of 2017 according to [NetMarketShare](https://netmarketshare.com/){:rel="nofollow"}.
 Perhaps in a few years, you won’t need to polyfill anymore and you will be able to use the latest vanilla enhancements,
 meaning your code will be shorter and finally consistent!
 
 ## What do I do if my application has a strong dependency?
 
-The major part of the Alexa top websites have jQuery ([Source](https://publicwww.com/websites/jquery/)). Some even use
-an old version that cannot be easily upgraded! It is not a shame to have a website that runs thanks to this framework;
-that proves it can handle production environments. If you frantically refactor your logic and keep it clean, you don’t
-have to worry about your legacy that much! You can still replace the last few $ by their vanilla counterparts later if
-you want to. [You Might Not Need jQuery](http://youmightnotneedjquery.com/) is a neat website that could very well teach
-you a few tricks for that matter.
+The major part of the Alexa top websites have jQuery ([Source](https://publicwww.com/websites/jquery/){:rel="nofollow"}).
+Some even use an old version that cannot be easily upgraded! It is not a shame to have a website that runs thanks to
+this framework; that proves it can handle production environments. If you frantically refactor your logic and keep it
+clean, you don’t have to worry about your legacy that much! You can still replace the last few $ by their vanilla
+counterparts later if you want to. [You Might Not Need jQuery](http://youmightnotneedjquery.com/){:rel="nofollow"} is a
+neat website that could very well teach you a few tricks for that matter.
 
 Remember, you don’t need to move out of it. Just don’t integrate it too deeply or you won’t be able to upgrade it
 anymore and don’t start a project with this framework in mind just when the JavaScript world is starting to get
