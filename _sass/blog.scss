@@ -28,3 +28,21 @@
         }
     }
 }
+
+#pagination {
+    display: flex;
+
+    .prev, .page, .next {
+        flex-grow: 1;
+    }
+
+    .prev {
+        text-align: right;
+    }
+    .page {
+        text-align: center;
+    }
+    .next {
+        text-align: left;
+    }
+}
