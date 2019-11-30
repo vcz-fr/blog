@@ -1,10 +1,13 @@
 #article {
     font-family: blog, serif;
-    line-height: 125%;
+    font-size: 18px;
+    line-height: 130%;
     text-align: justify;
 
     h1, h2, h3, h4, h5, h6 {
         line-height: normal;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
     }
 
     hr {
