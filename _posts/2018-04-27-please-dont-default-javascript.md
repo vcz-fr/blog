@@ -5,7 +5,7 @@ title: "Please don’t default to... JavaScript"
 categories: ["Development"]
 tags: ["repost", "archive", "javascript"]
 
-date: "2018-02-10"
+date: "2018-04-27"
 ---
 
 **Words of notice:** This is a slightly edited repost from an article I published on my previous blog.
@@ -54,7 +54,7 @@ your ideas? Today, everything is at our doorstep. After all, that is how we ende
 Moreover, learning JavaScript has never felt so easy with tutorials, books and apps that can follow you in your everyday
 routine. That applies to most languages and technologies developers use. [Grasshopper](https://grasshopper.codes/) from
 the [Google Area 120](https://area120.google.com/) team is the latest option to try out if you want to learn the
-language! If you need some practice, [Codingame](https://www.codingame.com/) is a neat website!
+language! If you need some practice, [CodinGame](https://www.codingame.com/) is a neat website!
 
 ## The ugly part
 
@@ -91,10 +91,10 @@ It is constant evolution therefore needs space to grow. Do not lock yourself in 
 things unless you cannot do otherwise and do not use JavaScript for things that could be achieved by thinking and
 designing differently in the first place.
 
-Do not hesitate to read about the [best practices](https://jstherightway.org/) and to be creative to avoid defaulting to JavaScript for everything.
-Use CSS classes, HTML inputs and labels, keyframes, media queries, etc. When a feature is purely cosmetic, you should be
-able to drop the browser support with the added benefit that your code will be lighter and easier to understand in the
-end.
+Do not hesitate to read about the [best practices](https://jstherightway.org/) and to be creative to avoid defaulting to
+JavaScript for everything. Use CSS classes, HTML inputs and labels, keyframes, media queries, etc. When a feature is
+purely cosmetic, you should be able to drop the browser support with the added benefit that your code will be lighter
+and easier to understand in the end.
 
 Remember JavaScript is not a bad language, it just needs to be understood and handled with care, especially when your
 code reaches millions of people. Do not lose control of your JavaScript and your app will be fine for ever!

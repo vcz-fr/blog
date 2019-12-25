@@ -58,7 +58,7 @@ though. The way one grows up shapes their personality and perception of the worl
 
 We must not label anyone, regardless of their gender, sexual orientation, ethnicity, religious or political beliefs or
 any other characteristic. This is an insanely difficult task as it requires to question the way we think and we process
-information, the way we echange with others, the limits we impose to ourselves and to our discussion partners. To reduce
+information, the way we exchange with others, the limits we impose to ourselves and to our discussion partners. To reduce
 cognitive load, it is common for most of us to simplify and classify. This is a bad but necessary habit that we have to
 erase.
 
