@@ -4,7 +4,7 @@ type: categories
 collection: Cloud
 ---
 
-Global game changer. The Cloud is a framework that delivers on a promise of cost-effective, performant, secure,
+A global game changer. The Cloud is a framework that delivers on a promise of cost-effective, performant, secure,
 comprehensive and reliable infrastructures for the years to come. It has become possible to freely innovate without
 needing to configure software or hardware at each step. Without the need to maintain ever increasing server rooms.
 

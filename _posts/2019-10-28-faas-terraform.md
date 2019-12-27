@@ -50,17 +50,13 @@ _**Figure 1:** Basic Terraform abstractions_
 
 The infrastructure code in the next section is layered and each abstraction layer removes complexity from the resource
 configuration logic by making simple decisions. An example Terraform project structure may look like this:
-
 * Base layer: contains generic resource code, could be abstracted away in a dedicated Git repository, S3 bucket, etc.
   and reused across projects;
-
 * Project resource layer: sits on top of one or multiple resources, includes project assumptions and simplifies the
   outer layers;
-
 * Optional project module layer: uses one or multiple project resources along with broader project assumptions to create
   a cohesive module that could be replicated by the outer layer. Beware, though: as of Terraform 0.12, for_each is not
   supported for modules;
-
 * Interconnect: the root module, which will basically manipulate inputs and outputs. Its role is to hide the complexity
   of the stack by handling its outermost interactions.
 
