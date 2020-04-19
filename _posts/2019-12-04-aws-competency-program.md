@@ -24,12 +24,12 @@ recognized by AWS for these reasons, standing out and moving the industry forwar
 
 <!-- READ MORE -->
 
-The [official program page](https://aws.amazon.com/partners/competencies/) lists all of these distinctions. The
-application process requires preparation and an extensive knowledge of the issues in the field they concern. They can be
-focused on a particular industry, technology area or platform.
+The [official program page](https://aws.amazon.com/partners/competencies/){:rel="nofollow"} lists all of these
+distinctions. The application process requires preparation and an extensive knowledge of the issues in the field they
+concern. They can be focused on a particular industry, technology area or platform.
 
-Today, two AWS Competencies have been added to the Industries list: [Public Safety and Disaster Response](https://aws.amazon.com/stateandlocal/justice-and-public-safety/partner-solutions/)
-and [Retail](https://aws.amazon.com/retail/partner-solutions/).
+Today, two AWS Competencies have been added to the Industries list: [Public Safety and Disaster Response](https://aws.amazon.com/stateandlocal/justice-and-public-safety/partner-solutions/){:rel="nofollow"}
+and [Retail](https://aws.amazon.com/retail/partner-solutions/){:rel="nofollow"}.
 
 ## Public safety and Disaster response
 
@@ -59,4 +59,4 @@ Technology Partnership. Knowing these solutions and being able to successfully i
 more complete view of one of the main areas of retail makes it possible to qualify for the second option: the Consulting
 Partnership.
 
-To discover in detail the AWS Competency Program, please visit [its official page](https://aws.amazon.com/partners/competencies/).
+To discover in detail the AWS Competency Program, please visit [its official page](https://aws.amazon.com/partners/competencies/){:rel="nofollow"}.

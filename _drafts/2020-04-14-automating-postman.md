@@ -94,7 +94,7 @@ conferences, blog posts, trial and error, etc. Being confident with the possibil
 In its core, automation translates to finding ways to run manual tasks automatically. Scheduling and fallbacks are
 secondary to the topic. Automation happens when the value brought by a human is minimal. For instance, if a human clicks
 on a button to deploy an application and moves on with their day, this action can be automated. If they have been
-instructed to click on the button at a specific time interval, this action could have been scheduled in the first place.
+instructed to click on the button during a specific time interval, this action could have been scheduled in the first place.
 Now if the deployment requires attention, there is value in having somebody following it but this value ought to be
 minimized with the output of more observable metrics and better practices for the application.
 
@@ -109,17 +109,14 @@ automation, which contradicts the principles of automation in the first place.
 For more complex scenarios, their essence must be extracted; what has to run, in which order, can it be parallelized,
 what are the requirements. The more information is retrieved about the ecosystem the better. In the end, automation
 requires systems to run scenarios, therefore these systems must understand how to precisely communicate with the actual
-tools that run them and be capable of following the schedule. The executor systems do not need to be automated as well
+tools that run them and be able of follow the schedule. The executor systems do not need to be automated as well
 even though that would be appreciable.
 
 The category of systems of that sort that are the most widespread is **CI/CD**. Reaching the state of automation
 requires to understand how the core of the software operates in order to expose the interface that will get used later
-in the process. Good software engineering would provide the following at that point:
-- A clean way to connect external compliant platforms to the system;
-- Knowledge across the team;
-- New tools for developers.
+in the process.
 
-Indeed, an application being ready for automation implies that the automation interface may be used by developers to
-shorten their feedback loop! In certain instances, the refactoring brings [unexpected advantages](https://blog.cloudflare.com/project-crossbow-lessons-from-refactoring-a-large-scale-internal-tool/){:rel="nofollow"}.
+On the flip side, an application being ready for automation implies that the communication interface may be used by
+developers to shorten their feedback loop! In certain instances, the refactoring brings [unexpected advantages](https://blog.cloudflare.com/project-crossbow-lessons-from-refactoring-a-large-scale-internal-tool/){:rel="nofollow"}.
 
  ∎
