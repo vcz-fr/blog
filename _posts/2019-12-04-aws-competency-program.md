@@ -22,6 +22,8 @@ becoming a partner of choice for companies that would like to rely on AWS to mee
 creativity in solving the most complex problems, those for which there is no answer yet. It means being officially
 recognized by AWS for these reasons, standing out and moving the industry forward.
 
+<!-- READ MORE -->
+
 The [official program page](https://aws.amazon.com/partners/competencies/) lists all of these distinctions. The
 application process requires preparation and an extensive knowledge of the issues in the field they concern. They can be
 focused on a particular industry, technology area or platform.

@@ -19,8 +19,8 @@ _Gekko @ re:Invent 2019 – Tuesday, December 3rd of 2019_
 
 The notion of code quality is paradoxically one of the elements that divide development teams, but which nevertheless
 exposes fundamental notions that have been anchored for decades in the field. At the turn of a conversation between
-followers of [Software Craftsmanship](https://en.wikipedia.org/wiki/Software_craftsmanship), we can hear about technical
-debt, dead code elimination or, for the most subtle, [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity).
+followers of [Software Craftsmanship](https://en.wikipedia.org/wiki/Software_craftsmanship){:rel="nofollow"}, we can
+hear about technical debt, dead code elimination or, for the most subtle, [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity){:rel="nofollow"}.
 
 Developing a service requires writing code. Every new feature beyond the basic trivial brick requires wiring to the
 existing code. Therefore, a development will contain phases of reading code. In the best case scenario, this reading is
@@ -82,5 +82,5 @@ The benefits of this solution have ripple effects; Amazon CodeGuru makes develop
 their systems, reduces the load and difficulty of the code review process, improves the experience of a product for
 end users, all while paying for itself by reducing the operational costs.
 
-If this preliminary introduction to this new service has captured your interest, the next step is to [try and adopt Amazon
-CodeGuru](https://console.aws.amazon.com/codeguru/).
+If this preliminary introduction to this new service has captured your interest, the next step is to [try and adopt
+Amazon CodeGuru](https://console.aws.amazon.com/codeguru/){:rel="nofollow"}.

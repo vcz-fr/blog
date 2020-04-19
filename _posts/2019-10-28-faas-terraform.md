@@ -21,8 +21,8 @@ step, a new tool after the advent of container technologies became a subject in 
 However, let us define a boundary first: this post will be concentrating on a major domain of Serverless which is the
 Function as a Service, also known as FaaS. The title of this article avoids mentioning “Serverless” for this reason;
 Serverless is a superset of FaaS. Without entering too much into details, Databases as a Service -DBaaS- solutions such
-as [DynamoDB](https://aws.amazon.com/dynamodb/) belong to Serverless since they share the same aspects: they allocate
-and consume resources when necessary, scale up and down seamlessly and are highly available by definition.
+as [DynamoDB](https://aws.amazon.com/dynamodb/){:rel="nofollow"} belong to Serverless since they share the same aspects:
+they allocate and consume resources when necessary, scale up and down seamlessly and are highly available by definition.
 
 <!-- READ MORE -->
 
@@ -30,13 +30,13 @@ FaaS is a concept that took off when major cloud vendors announced their solutio
 bit rough around the edges but there is certainly a way to be creative today. FaaS does not drift much from classic
 development practices since the idea revolves around operations and execution rather than pure software development.
 Speaking of operations, here is a question: what if functions could be written and deployed along with companion
-services in different environments, right from a terminal? That is the promise behind tools similar to AWS’s [CloudFormation](https://aws.amazon.com/cloudformation/)
--or [CDK](https://aws.amazon.com/cdk/) for the adventurers- or Hashicorp’s [Terraform](https://www.terraform.io/).
+services in different environments, right from a terminal? That is the promise behind tools similar to AWS’s [CloudFormation](https://aws.amazon.com/cloudformation/){:rel="nofollow"}
+-or [CDK](https://aws.amazon.com/cdk/){:rel="nofollow"} for the adventurers- or Hashicorp’s [Terraform](https://www.terraform.io/){:rel="nofollow"}.
 
 Even though Terraform is rapidly evolving in a breaking fashion, it is a strategic technology today: multi-vendor,
-actively supported, with a [large community](https://github.com/hashicorp/terraform) and user base. It is possible to
-abstract the infrastructure to leverage the strengths and unique features of each cloud provider! In addition, the
-community is such that most of the ground–laying work is there and waiting for the technical teams.
+actively supported, with a [large community](https://github.com/hashicorp/terraform){:rel="nofollow"} and user base. It
+is possible to abstract the infrastructure to leverage the strengths and unique features of each cloud provider! In
+addition, the community is such that most of the ground–laying work is there and waiting for the technical teams.
 
 CloudFormation and CDK chose a different direction: they are tightly integrated with AWS in such a way that
 configuration can be visualized, and outside changes tracked. Plus, it seamlessly integrates with existing
@@ -77,8 +77,8 @@ _**Figure 3:** Stacks and environments multiplexing_
 If there is repetition in the resources to provision, such as multiple business domains with each its own dedicated API
 Gateway, Functions, etc. then the Project module layer comes into play and can be used to define where the Functions are
 located and which dependencies they need to run. This is not easily manageable with Terraform 0.11 but becomes a breeze
-starting with Terraform 0.12 and its [richer type system](https://www.terraform.io/docs/configuration/types.html). In
-any case, the resource layers structure can help. Just remember that the use of for_each structures within modules is
+starting with Terraform 0.12 and its [richer type system](https://www.terraform.io/docs/configuration/types.html){:rel="nofollow"}.
+In any case, the resource layers structure can help. Just remember that the use of for_each structures within modules is
 not allowed yet, which limits uses requiring iteration on virtual resources.
 
 However, remember that Terraform relies on declarative languages, therefore everything must appear explicitly otherwise
@@ -216,8 +216,8 @@ resource "aws_lambda_layer_version" "resource" {
 ```
 
 Something that might not come as surprising though, is the length of the file that will manage the resource. In the
-present case, it will only compute a hash of the package to deploy. This module could be versioned and stored in any
-[Terraform source](https://www.terraform.io/docs/modules/sources.html) to be reused in future projects.
+present case, it will only compute a hash of the package to deploy. This module could be versioned and stored in any [Terraform source](https://www.terraform.io/docs/modules/sources.html){:rel="nofollow"}
+to be reused in future projects.
 
 ### Testing the solution
 
@@ -283,7 +283,7 @@ The trace is no different from what one gets to see when using Terraform.
 ![The Graphviz output of terraform graph](/assets/img/posts/20191028/Terraform-graph.png)  
 _**Figure 4:** The Graphviz output of `terraform graph`_
 
-Generating a capture of the resources and their dependencies is recommended. Use [terraform graph](https://www.terraform.io/docs/commands/graph.html)
+Generating a capture of the resources and their dependencies is recommended. Use [terraform graph](https://www.terraform.io/docs/commands/graph.html){:rel="nofollow"}
 and a visualization tool for that purpose.
 
 ### The result
@@ -333,8 +333,8 @@ for new, more powerful tools.
 _**Figure 6:** Red is "Terraform", Blue is "Infrastructure as Code"_
 
 Remember that Terraform is still young, has imposed a few breaking changes and will still do in the forthcoming years.
-Terraform evolves along with [its providers](https://github.com/terraform-providers), features are frequently added and
-code breaks.
+Terraform evolves along with [its providers](https://github.com/terraform-providers){:rel="nofollow"}, features are
+frequently added and code breaks.
 
 Regarding the architecture presented in this blog post, getting started with such ideas requires general knowledge of
 Terraform and Infrastructure as Code. Nevertheless, once the base code for the software stack is coined and understood,

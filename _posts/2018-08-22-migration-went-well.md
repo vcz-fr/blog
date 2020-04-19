@@ -68,7 +68,7 @@ elastic by definition, it could not handle peak load and we had to rollback.
 After the database migration, we encountered the classic issues. The pages that relied the most on the database were
 painfully slow to generate as the servers were now further apart. The sneakiest was those frequent spikes of the
 database that rendered our platform unusable for about ten minutes multiple times a day! What was odd is that we could
-still send queries to the database. The most basic debugging query — [SHOW FULL PROCESSLIST;](https://dev.mysql.com/doc/refman/5.6/en/show-processlist.html)
+still send queries to the database. The most basic debugging query — [SHOW FULL PROCESSLIST;](https://dev.mysql.com/doc/refman/5.6/en/show-processlist.html){:rel="nofollow"}
 — helped us understand what was going on; a critical index for the CMS was missing.
 
 After adding some missing indices, our database held up the charge, even though it gets seriously underused. Database
@@ -81,16 +81,16 @@ Since we could start fresh with the compute server, we decided to pick the lates
 version went from 5.4 to 5.6 with no damage, NginX moved from 1.01 (yes!) to 1.14 and added memcached for session
 handling. Consequently, we skimmed through the configuration docs of these technologies to find ways to reduce I/O.
 
-We also had the opportunity to improve the content delivery and its security by enabling [HTTP/2](http://nginx.org/en/docs/http/ngx_http_v2_module.html#example)
-and sending and compressing our resources thanks to a CDN! NginX and [CloudFlare](https://www.cloudflare.com/) made the
-changes effortless and allowed to slash the download times! To put it differently: quick and efficient wins!
+We also had the opportunity to improve the content delivery and its security by enabling [HTTP/2](http://nginx.org/en/docs/http/ngx_http_v2_module.html#example){:rel="nofollow"}
+and sending and compressing our resources thanks to a CDN! NginX and [CloudFlare](https://www.cloudflare.com/){:rel="nofollow"}
+made the changes effortless and allowed to slash the download times! To put it differently: quick and efficient wins!
 
 Now that the easy part was done, we had to move the code at some point and test it until every module was up and
 running. This step looks a lot like moving to a new place. We stumbled upon a large quantity of unused configurations
 and files in the solution. Our logging level was also unsuited for production.
 
 Finally, improving the performance of a website comes with knowing its critical path. To this end, we wanted a simple
-tool that any developer could get on board with in less than ten minutes. We settled on [BlackFire](https://blackfire.io/).
+tool that any developer could get on board with in less than ten minutes. We settled on [BlackFire](https://blackfire.io/){:rel="nofollow"}.
 With its modern and clean experience, we could clearly and rapidly iterate on what was costly in our infrastructure! We
 could track down every database call, every duplicate function call, everything that was slowing us down.
 
