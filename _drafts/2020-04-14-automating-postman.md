@@ -41,12 +41,12 @@ somewhere. Testing its security or safety can rely on the detection of known ant
 depends on known configuration, namely _linter_ rules. Everything here is clearly defined and repeatable across
 projects. However, this cannot be said of the assessment that an application does what it claims.
 
-The [Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html) is a construct that is often used to explain the way
-a service should be tested: lots of small, fast and inexpensive **Unit tests** to validate the foundational layer, the
-code that has a small and clearly defined responsibility, then less moderate **Integration tests** to prove these bricks
-can interact and work together and finally less slow and expensive **End-To-End tests** that run real life scenarios
-across the service. A common distribution for these tests is 70% - 20% - 10%, which means 10% of the test cases should
-relate to the whole application.
+The [Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html){:rel="nofollow"} is a construct that is often used
+to explain the way a service should be tested: lots of small, fast and inexpensive **Unit tests** to validate the
+foundational layer, the code that has a small and clearly defined responsibility, then less moderate **Integration
+tests** to prove these bricks can interact and work together and finally less slow and expensive **End-To-End tests**
+that run real life scenarios across the service. A common distribution for these tests is 70% - 20% - 10%, which means
+10% of the test cases should relate to the whole application.
 
 Making sure that the smaller components of the application work before testing larger components is crucial. End
 users will report errors that cannot be directly translated to patches, that is why their reported errors must be
@@ -55,24 +55,24 @@ parallel, which makes them perfect to for local execution.
 
 A test suite should indeed not be only relied upon during Continuous Integration and Continuous Delivery pipelines. Any
 developer should be able to pick it up and run it partially or fully to validate their code changes locally. Version
-Control Systems may feature some kind of workflow event mechanism to even automate this part. In Git, there are [Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
+Control Systems may feature some kind of workflow event mechanism to even automate this part. In Git, there are [Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks){:rel="nofollow"}.
 
 ## In the subject of APIs
 
-API design, like any engineering task, follows trends which [we wrote about a while ago -in French-](https://www.gekko.fr/les-bonnes-pratiques-a-suivre-pour-developper-des-apis-rest/).
-Swagger and more generally OpenAPI is one of them, as is using services and applications to help developers testing
-their own or third party APIs. Both subjects seem orthogonal, like placed on the two ends of the spectrum with design on
+API design, like any engineering task, follows trends which [we wrote about a while ago -in French-](https://www.gekko.fr/les-bonnes-pratiques-a-suivre-pour-developper-des-apis-rest/){:rel="nofollow"}.
+Swagger and more generally OpenAPI are two of them, as is using services and applications to help developers testing
+their own or third-party APIs. Both subjects seem orthogonal, like placed on the two ends of the spectrum with design on
 one end and testing on the other but are they?
 
 OpenAPI, for instance, allows defining the format of the inputs and outputs for each method of each endpoint. This is
-notably the validation that [Amazon API Gateway](https://aws.amazon.com/api-gateway/) applies when processing requests
-and responses for REST APIs. Consequently, it is wise to add as much information as possible right from the beginning,
-that is the API specification.
+notably the validation that [Amazon API Gateway](https://aws.amazon.com/api-gateway/){:rel="nofollow"} applies when
+processing requests and responses for REST APIs. Consequently, it is wise to add as much information as possible right
+from the beginning, that is the API specification.
 
 Once one gets familiar with the specification language, using tools can become beneficial to increasing productivity,
-getting started faster, visualizing current work and shortening the feedback loop. The right tool can reduce friction. [OpenAPI.tools](https://openapi.tools/)
+getting started faster, visualizing current work and shortening the feedback loop. The right tool can reduce friction. [OpenAPI.tools](https://openapi.tools/){:rel="nofollow"}
 contains a list of such tools that help with the design, integration and test of OpenAPI APIs. For this article, we will
-be concentrating on one of the most popular of the list, [Postman](https://www.postman.com/).
+be concentrating on one of the most popular of the list, [Postman](https://www.postman.com/){:rel="nofollow"}.
 
 ## Postman
 
@@ -80,11 +80,11 @@ Postman is known and loved by the community. It helps with debugging APIs during
 bundled together into a collection and this collection can be documented and shared across the team to share knowledge.
 
 Less is known about the fact that API responses can be tested using a human-like syntax. This is called BDD for
-"Behavior Driven Development" and, as the [documentation states](https://learning.postman.com/docs/postman/scripts/test-scripts/),
-it is based on [ChaiJS](https://www.chaijs.com/api/bdd/). In addition, it is possible to test the response body schema,
-run a script before the request or before a collection of requests. All of this can be exported to a Postman collection
-file. If the API specification is ready and complete, it can be imported to a collection that will contain the resources,
-routes, parameters pre-filled so that one can get started faster with the tests!
+"Behavior Driven Development" and, as the [documentation states](https://learning.postman.com/docs/postman/scripts/test-scripts/){:rel="nofollow"},
+it is based on [ChaiJS](https://www.chaijs.com/api/bdd/){:rel="nofollow"}. In addition, it is possible to test the
+response body schema, run a script before the request or before a collection of requests. All of this can be exported to
+a Postman collection file. If the API specification is ready and complete, it can be imported to a collection that will
+contain the resources, routes, parameters pre-filled so that one can get started faster with the tests!
 
 This article is not about using Postman, though. There are numerous ways to get started: documentations, tutorials,
 conferences, blog posts, trial and error, etc. Being confident with the possibilities offered by the platform and knowing how to write tests both fundamentally and with Postman is a prerequisite when the need for automation arises.
@@ -92,9 +92,34 @@ conferences, blog posts, trial and error, etc. Being confident with the possibil
 ## Automation
 
 In its core, automation translates to finding ways to run manual tasks automatically. Scheduling and fallbacks are
-secondary to the topic. Automation happens when value brought by a human is minimal. For instance, if a human clicks on
-a button to deploy an application and moves on with their day, this action can be automated. If they have been
+secondary to the topic. Automation happens when the value brought by a human is minimal. For instance, if a human clicks
+on a button to deploy an application and moves on with their day, this action can be automated. If they have been
 instructed to click on the button at a specific time interval, this action could have been scheduled in the first place.
 Now if the deployment requires attention, there is value in having somebody following it but this value ought to be
 minimized with the output of more observable metrics and better practices for the application.
 
+> Creating applications and provisioning infrastructure accomplishes more than enabling new use cases: it opens automation
+to new areas of business.
+
+The most naive implementation of automation is a contraption that would reproduce the same steps a normal user would
+follow, like [Selenium](https://www.selenium.dev/){:rel="nofollow"} for web content. This kind of automation operates
+well in simple, low-maintenance scenarios. If the automation relies on intelligence somebody will need to maintain the
+automation, which contradicts the principles of automation in the first place.
+
+For more complex scenarios, their essence must be extracted; what has to run, in which order, can it be parallelized,
+what are the requirements. The more information is retrieved about the ecosystem the better. In the end, automation
+requires systems to run scenarios, therefore these systems must understand how to precisely communicate with the actual
+tools that run them and be capable of following the schedule. The executor systems do not need to be automated as well
+even though that would be appreciable.
+
+The category of systems of that sort that are the most widespread is **CI/CD**. Reaching the state of automation
+requires to understand how the core of the software operates in order to expose the interface that will get used later
+in the process. Good software engineering would provide the following at that point:
+- A clean way to connect external compliant platforms to the system;
+- Knowledge across the team;
+- New tools for developers.
+
+Indeed, an application being ready for automation implies that the automation interface may be used by developers to
+shorten their feedback loop! In certain instances, the refactoring brings [unexpected advantages](https://blog.cloudflare.com/project-crossbow-lessons-from-refactoring-a-large-scale-internal-tool/){:rel="nofollow"}.
+
+ ∎
