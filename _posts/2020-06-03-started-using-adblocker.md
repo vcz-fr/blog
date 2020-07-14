@@ -8,6 +8,9 @@ tags: ["web", "tools"]
 date: "2020-06-03"
 ---
 
+_Edit (14th of July 2020):_ Allow rules in uBlock Origin's Dynamic Filtering feature have been hidden due to them being
+misunderstood by the user base. This article has been updated accordingly.
+
 ## Bad feelings and feeling bad
 
 I will openly admit something: I always go above and beyond to reduce the amount of telemetry that gets sent to various
@@ -90,11 +93,11 @@ content from those domains globally and the way I did it is too detailed for my 
 uBlock Origin allows you to universally and locally allow, "noop" and block contents. What is "noop" you ask? It is a
 setting that cancels out broader allow or block rules! I was not lying when I said this was for advanced users.
 
-On the left of each domain name, there is a red, yellow -not on the capture- or greed band. Red means all requests have
+On the left of each domain name, there is a red, yellow -not on the capture- or green band. Red means all requests have
 been blocked, yellow that some requests have been blocked and green that everything has been allowed. The two clickable
-columns are your dynamic filters status, both global and local. They can have one of three colors in two variants:
-green -allow-, red -block- or gray -noop-, bright -active- or faded -inherited effect-. "+" and "-" relate to the amount of allowed and blocked requests. That is all you
-will ever need to know for a hobbyist usage of the tool!
+columns are your dynamic filters status, both global and local. They can have one of three colors in two variants: green -allow-[^1],
+red -block- or gray -noop-, bright -active- or faded -inherited effect-. "+" and "-" relate to the amount of allowed and
+blocked requests. That is all you will ever need to know for a hobbyist usage of the tool!
 
 As for the lines, from top to bottom:
 - all: self-explanatory;
@@ -178,3 +181,10 @@ what the Web can become when some actors are kept in check. With regards to HTTP
 you are an engineer or a casual meme browser.
 
 It is high time to play with your new tools now!
+
+## Footnotes
+
+[^1]: Starting with version [1.28.0](https://github.com/gorhill/uBlock/releases/tag/1.28.0), the green buttons have been
+removed from the default Dynamic Filtering interface because they are misunderstood, leading to privacy issues. There is
+a way to enable them back but please only use them as a last resort and prioritize the gray "noop" buttons when
+possible.
