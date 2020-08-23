@@ -102,7 +102,4 @@ code reaches millions of people. Do not lose control of your JavaScript and your
 
 ## Footnotes
 
-[^1]: Granted, you can retrieve network resources with HTML and CSS. You have some control over the loading priority and
-the resource choice (media queries, [srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset){:rel="nofollow"},
-async / defer, WOFF2 in font-face, etc.). You can also be [creative](https://github.com/jbtronics/CrookedStyleSheets){:rel="nofollow"}
-with CSS and the url() function.
+[^1]: Granted, you can retrieve network resources with HTML and CSS. You have some control over the loading priority and the resource choice (media queries, [srcset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset){:rel="nofollow"}, async / defer, WOFF2 in font-face, etc.). You can also be [creative](https://github.com/jbtronics/CrookedStyleSheets){:rel="nofollow"} with CSS and the url() function.

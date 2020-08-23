@@ -8,7 +8,7 @@ tags: ["web", "tools"]
 date: "2020-06-03"
 ---
 
-_Edit (14th of July 2020):_ Allow rules in uBlock Origin's Dynamic Filtering feature have been hidden due to them being
+_Edit (14th of July 2020):_ Allow rules in uBlock Origin's Dynamic Filtering feature have been hidden[^1] due to them being
 misunderstood by the user base. This article has been updated accordingly.
 
 ## Bad feelings and feeling bad
@@ -184,7 +184,4 @@ It is high time to play with your new tools now!
 
 ## Footnotes
 
-[^1]: Starting with version [1.28.0](https://github.com/gorhill/uBlock/releases/tag/1.28.0), the green buttons have been
-removed from the default Dynamic Filtering interface because they are misunderstood, leading to privacy issues. There is
-a way to enable them back but please only use them as a last resort and prioritize the gray "noop" buttons when
-possible.
+[^1]: Starting with version [1.28.0](https://github.com/gorhill/uBlock/releases/tag/1.28.0), the green buttons have been removed from the default Dynamic Filtering interface because they are misunderstood, leading to privacy issues. There is a way to enable them back but please only use them as a last resort and prioritize the gray "noop" buttons when possible.
