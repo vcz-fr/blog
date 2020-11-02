@@ -1,11 +1,11 @@
 ---
 layout: blog
 
-title: "Automating Postman"
+title: "on API automation"
 categories: ["Development"]
-tags: ["repost", "gekko", "api", "cicd"]
+tags: ["api", "cicd"]
 
-date: "2020-04-14"
+date: "2020-11-02"
 ---
 
 ## The Test Pyramid
@@ -31,10 +31,11 @@ Typically, tests should verify the following:
 1. The application works: it does what it claims;
 1. The application works **well**: it is performant, secure, maintainable, etc.
 
-That last element represents the concerns the team might have expressed while the others are common to all projects. It
-is still possible to add steps before and after the aforementioned ones like syntax checking, also known as _linting_,
-validating dependencies, package size, etc. These are all elements to consider as the structure hereby presented is in
-no way complete; it is merely a framework of a classical Continuous Integration and Delivery pipeline.
+That last element represents the concerns the team might have expressed while the others are common to all projects and
+non-negotiable. It is still possible to add steps before and after the aforementioned ones like syntax checking, also
+known as _linting_, validating dependencies, package size, etc. These are all elements to consider as the structure
+hereby presented is in no way complete; it is merely a framework of a classical Continuous Integration and Delivery
+pipeline.
 
 Validating that an application is performant or maintainable means that there exists a way to extract and compare KPIs
 somewhere. Testing its security or safety can rely on the detection of known anti-patterns. Checking the formatting
@@ -59,7 +60,7 @@ Control Systems may feature some kind of workflow event mechanism to even automa
 
 ## In the subject of APIs
 
-API design, like any engineering task, follows trends which [we wrote about a while ago -in French-](https://www.gekko.fr/les-bonnes-pratiques-a-suivre-pour-developper-des-apis-rest/){:rel="nofollow"}.
+API design, like any engineering task, follows trends which [my company wrote about a while ago -in French-](https://www.gekko.fr/les-bonnes-pratiques-a-suivre-pour-developper-des-apis-rest/){:rel="nofollow"}.
 Swagger and more generally OpenAPI are two of them, as is using services and applications to help developers testing
 their own or third-party APIs. Both subjects seem orthogonal, like placed on the two ends of the spectrum with design on
 one end and testing on the other but are they?
@@ -89,7 +90,7 @@ contain the resources, routes, parameters pre-filled so that one can get started
 This article is not about using Postman, though. There are numerous ways to get started: documentations, tutorials,
 conferences, blog posts, trial and error, etc. Being confident with the possibilities offered by the platform and knowing how to write tests both fundamentally and with Postman is a prerequisite when the need for automation arises.
 
-## Automation
+## On automation
 
 In its core, automation translates to finding ways to run manual tasks automatically. Scheduling and fallbacks are
 secondary to the topic. Automation happens when the value brought by a human is minimal. For instance, if a human clicks
@@ -99,7 +100,7 @@ Now if the deployment requires attention, there is value in having somebody foll
 minimized with the output of more observable metrics and better practices for the application.
 
 > Creating applications and provisioning infrastructure accomplishes more than enabling new use cases: it opens automation
-to new areas of business.
+opportunities.
 
 The most naive implementation of automation is a contraption that would reproduce the same steps a normal user would
 follow, like [Selenium](https://www.selenium.dev/){:rel="nofollow"} for web content. This kind of automation operates
@@ -107,10 +108,10 @@ well in simple, low-maintenance scenarios. If the automation relies on intellige
 automation, which contradicts the principles of automation in the first place.
 
 For more complex scenarios, their essence must be extracted; what has to run, in which order, can it be parallelized,
-what are the requirements. The more information is retrieved about the ecosystem the better. In the end, automation
-requires systems to run scenarios, therefore these systems must understand how to precisely communicate with the actual
-tools that run them and be able of follow the schedule. The executor systems do not need to be automated as well
-even though that would be appreciable.
+their requirements. The more information is retrieved about the ecosystem the better. In the end, automation requires
+systems to run scenarios, therefore these systems must understand how to precisely communicate with the actual tools
+that run them and be able of follow the schedule. The executor systems do not need to be automated as well even though
+that would be appreciable.
 
 The category of systems of that sort that are the most widespread is **CI/CD**. Reaching the state of automation
 requires to understand how the core of the software operates in order to expose the interface that will get used later
@@ -118,5 +119,9 @@ in the process.
 
 On the flip side, an application being ready for automation implies that the communication interface may be used by
 developers to shorten their feedback loop! In certain instances, the refactoring brings [unexpected advantages](https://blog.cloudflare.com/project-crossbow-lessons-from-refactoring-a-large-scale-internal-tool/){:rel="nofollow"}.
+
+## Conclusion
+
+TODO: summarize the process in steps: design and prototyping, API proxy provisioning, testing, added value for dependent applications.
 
  ∎

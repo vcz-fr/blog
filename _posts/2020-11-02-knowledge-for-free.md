@@ -15,6 +15,8 @@ since I am an avid consumer of blog posts and subject to more and more of Medium
 those too, around the corner of a React post or a rant about some hyped technology. I am here talking about pay-to-read
 and other fantasies.
 
+<!-- READ MORE -->
+
 Frankly, I am not pleased to see writers publish insightful content on that platform for it to be soft-blocked without
 their consent. This prevents the open sharing of knowledge which was the author's intention all along! And this does not
 concern Medium exclusively but also, and this is more critical, research websites. The most advanced contents, raw
@@ -22,7 +24,8 @@ information, frustratingly locked away behind paywalls.
 
 I understand that hosting such contents come at a price. Realistically, hosting text and images and serving them never
 comes for cheap. But if you want to make content sustainable, even when you cannot contribute or maintain often, then
-you should prioritize a low-maintenance, low-hassle and low-cost solution.
+you should prioritize a low-maintenance, low-hassle and low-cost solution. An extra benefit for free architectures is
+that your content can theoretically stay online until one provider in the chain decides to change its free terms.
 
 ## The law of low
 
