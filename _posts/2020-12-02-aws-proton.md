@@ -76,6 +76,11 @@ If you are familiar with all these technologies, then you might have an idea of 
 actions would start a CI/CD which checks out the repository, tests and packages the application according to given
 procedures and deploys it.
 
+
+![Side-by-side AWS Proton and project configurations](/assets/img/posts/20201202/project-settings.png)  
+_Side-by-side AWS Proton and project configurations_
+
+
 Here is an example: the [AWS Proton template](https://github.com/aws-samples/aws-proton-sample-templates/tree/main/lambda-crud-svc){:rel="nofollow"}
 developed by platform engineering teams and DevOps and one [service using the template](https://github.com/aws-samples/aws-proton-sample-lambda-crud-service){:rel="nofollow"},
 where development teams and DevOps trade ideas that tighten the integration of their new solution with AWS. An example
@@ -83,6 +88,10 @@ can be seen in `/specs/svc-spec.yaml` in the template repository. This file cont
 authorized user would have to fill when requesting this specific service in the AWS Proton interface or through the CLI.
 Note the unit test and packaging commands. Now read the `/Makefile` in the solution code; the `test` and `install` steps
 are defined there.
+
+
+![From AWS Proton specification to AWS CloudFormation template](/assets/img/posts/20201202/proton-process.png)  
+_From AWS Proton specification to AWS CloudFormation template_
 
 What magic allows us to define these fields? Schemas and templates! Since the same AWS CloudFormation template may be
 used for different solutions, it must contain variables. These variables need to be defined, documented and displayed.
