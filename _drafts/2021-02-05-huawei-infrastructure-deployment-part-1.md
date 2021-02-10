@@ -1,121 +1,155 @@
 ---
 layout: blog
 
-title: "Deploying a complete infrastructure on the Huawei Cloud"
+title: "Deploying a complete infrastructure on Huawei Cloud"
 categories: ["Infrastructure"]
 tags: ["huawei", "kubernetes"]
 
 date: "2021-02-05"
 ---
 
-## Deploying a complete infrastructure on the Huawei Cloud
+## Some elements of context
 
-*Using ELB, Kubernetes, Managed postgreSQL and Redis.*
+As a Cloud Engineer at Gekko Part of Accenture, I am comfortable running complex infrastructure on AWS which provides
+datacenters all over the world. But in one project, a customer wished to replicate their infrastructure on a different
+Cloud provider, Huawei Cloud! I was only aware of the existence of Huawei hardware such as smartphones, computers and IT
+oriented products but not as a cloud provider so I decided to share my experience about running an app on Huawei Cloud
+using as many managed services as possible.
 
+> This topic will be divided into two blog posts: this one for the backbone infrastructure and the next will concentrate
+> on Kubernetes and the application.
 
-As a Cloud Engineer at GEKKO, I’m comfortable running complex infrastructure on the AWS cloud which have datacenter all over the world. But for a particular case one of our client mandate us to replicate his infrastructure in standalone on a new cloud provider, the Huawei cloud !
-I was only aware of the existence of Huawei threw phones, computers, and IT oriented products but not as a cloud provider. So I’ve decided to write a blog post about it to share my experience about running an app on Huawei using as much manages services as I could.
-
-> This topic will be treated with 2 blog posts, one for the backbone infrastructure and the part two will handle the kubernetes + applicative part !
-
-Here are the different components that we are going to use:
+Here are the components that we are going to setup:
 - 1 VPC
-- 1 single subnet across 3 AZ
+- 1 single subnet across 3 AZs
 - 1 ELB
 - 1 Kubernetes cluster
-- 1 PostrgreSQL
+- 1 PostgreSQL
 - 1 Redis
 - 1 Docker repository
 - 1 Bastion host
-- Elastic Ips
+- Elastic IPs
 
 [INFRA_GLOBAL.PNG]
 
 
-#### Why the Huawei cloud ?
+### Why Huawei cloud?
 
-In our case our client have a web application deployed in France on AWS, for latency purposes they’ve decided to deploy the application on a new datacenter in Asia. Their choice was oriented toward Huawei and his cloud service because it was cheaper and contain all the managed services needed by their application to run.
+In this case the customer deployed a web application on AWS in France. For latency purposes they have decided to deploy
+the same application on a datacenter in Asia. They were leaning towards Huawei Cloud as it is generally less expensive
+and contains the managed services they needed for their application to run.
 
-#### Will you use Infra As Code ?
+### On Infrastructure As Code
 
-In this blog post I will not use IaC, everything will be deployed threw the console. But there is a Terraform provider upgraded and maintained by the community. I did not use it because all the resources that I need are not disponible on the provider. The first version of the provider was released the 18 July of 2018 and it’s updated daily so maybe at the time you’ll read this post the provider will be complete and usable !
+In this blog post I will not use Infrastructure As Code _-IaC-_, everything will be deployed through the web interface,
+called the Console. Nevertheless, there is a [community Terraform provider](https://github.com/huaweicloud/terraform-provider-huaweicloud)
+for Huawei Cloud. All the resources I need were not available on the provider during the course of the project. The
+first version of the provider was released the 18th of July, 2018 and it is updated often therefore it is possible the provider could be complete and usable for this project now!
 
-[Huawei Provider Link](https://github.com/huaweicloud/terraform-provider-huaweicloud)
+### Here we go!
 
-#### Here we go !
+It is time to build our application step by step. First, we need a Landing zone on our Huawei Cloud account to create
+the resources needed by our application. We will start by creating a [Virtual Private Cloud](https://www.huaweicloud.com/en-us/product/vpc.html)
+(VPC) with a single subnet in one AZ. Since our VPC is not accessible from the internet we will create a
+bastion [Elastic Cloud Server](https://www.huaweicloud.com/en-us/product/ecs.html) (ECS) instance and associate it with
+a private key and an [Elastic IP](https://www.huaweicloud.com/en-us/product/eip.html).
 
-It’s time to build our app step by step. To begin with we need a landing zone on our Huawei account to create the several resources needed by our application.We will start by creating a VPC with a single subnet across AZ. Since our VPC is private and not accessible from the internet we will create a bastion and associate it with a private key and an Elastic IP.
+You can find the Huawei console [here](https://auth.huaweicloud.com/).
 
-You can find the Huawei console [HERE](https://auth.huaweicloud.com/)
+## Part I: The landing zone
 
-### Part I: The landing zone
+Let's start with the VPC, the base of our infrastructure.
 
-First we need to create our VPC, it will be the base of your infrastructure.
+### VPC and Subnets
 
-##### VPC and Subnets
-You can create one under `Virtual Private Cloud > Buy VPC` from the Huawei Console.
-Select a Region, a name for your VPC and a CIDR block (you can use the recommended VPCs).
+You can create one under `Virtual Private Cloud > Buy VPC` in the Huawei Console.
+Select a Region, a name for the VPC and a CIDR block. You can use the recommended VPCs to get started faster.
 
-> Hint: A /16 at the end of your CIDR block will give you a total of 65,536 IP adresses that can be used by your different services.
+> Hint: A /16 at the end of a CIDR block translates to 256 * 256 = 65,536 IP addresses.
 
-Then on Advanced Settings create your default subnet.
+Go to `Advanced Settings` to create a default subnet.
 
-> We choose the default /24 CIDR block allowing us to use 256 IP adresses, it will be sufficient for our newly created cluster but keep in mind that it can be a good practice to split our different services on separate subnets. Allowing us a better approach to handle security and reliability on our devices in the future.
+> We choose the default /24 CIDR block allowing us to use 256 IP addresses, which will be sufficient for our future
+> cluster. Keep in mind that it is good practice to split different services onto separate subnets; that is a standard
+> approach to handle security and reliability on Cloud infrastructures.
 
 [VPC.PNG]
 
-##### NAT Gateway
+### NAT Gateway
 
-Our infrastructure need a limited access to the outside world to download packages, etc. For that a tool called NAT gateway is available on the VPC panel.You only need to create a public NAT Gateway and attach it to your vpc private subnet. When this step is complete your kubernetes cluster will be connected to the internet for specific actions !
+Our infrastructure needs a limited access to the outside world to update itself, etc. There is a service for that in the
+VPC panel: [NAT Gateway](https://www.huaweicloud.com/en-us/product/nat.html), of the Public kind in this case. You only
+need to create a Public NAT Gateway and attach it to your private subnet. When this step is complete your Kubernetes
+cluster may be connected to the Internet!
 
-Now that we have our first layer up and running we need to have the ability to access it !
-For that we will use a [Bastion host](https://en.wikipedia.org/wiki/Bastion_host).
+Now that we have our first layer up and running we need to have the ability to access it and for that we will use a [Bastion host](https://en.wikipedia.org/wiki/Bastion_host).
 
-> Why ? Because our VPC is private, it means that it’s impossible to reach our subnet from the internet, that’s a good way to secure our resources that don’t need to have an access to the outside world. A bastion is an instance that will allow us to enter our private network to connect/maintain/secure the infrastructure.
-
+> Because our VPC is private, it is impossible to directly reach our subnet from the Internet. A bastion is an instance that will allow us to access our private network to operate on the infrastructure.
 
 Lets go to the ECS panel to launch our instance.
 
-##### Bastion
+### Bastion
 
-A Bastion is a simple server on our private subnet with an inbound gate to the internet (Like a Public IP). With this host you can access your private VPC to handle run operations for example.
+A Bastion is a simple server on our private subnet with an inbound gate to the Internet like a Public IP. With this
+host, you can access your private VPC.
 
-I will help you understand the different topic needed to create your instance (They will be used on other resources later in this post so it’s good to understand them).
+I will help you understand the different steps needed to create your instance. These are common to many resources so it
+could be relevant to understand them sooner.
 
 _Billing mode:_
-Yearly/Monthly - it’s a way to reserve an instance for a given period of time, then you will not pay as the hour (the most known way to bill your instance in the cloud) but as a fixed period of time (Monthly or Yearly), it is the cheaper way if you have predictions about the compute capacity you’ll need on a certain amount of time.
-On-Demand - This is the default cloud billing method, launch an instance and pay every hour. This option is the best if you need instances for short amount of time or if you do not know the compute capacity you’ll need. It’s the method we will choose for our Bastion since it’s for a test.
-Spot price - This one is a little bit more complex. Cloud provider have always instances that are ready to run but not used by their customers. So they’ve created the spot instances to use this sleeping compute capacity. The billing is based on bets. Lets say an instance cost 0.5$ an hour. You can choose to pay 0.2$ for this instance, if no one is using it, then it’s yours. But if someone bet 0.3$ on the same instance or if no more compute capacity is available then you’ll lose your device. This type of billing is useful for non-critical jobs for example.
+
+Yearly or Monthly - It is a way to reserve an instance for a given period of time. This means you will
+not pay hourly rates as it is common with most Cloud providers but monthly or yearly rates. This is the less expensive
+way if you can predict the capacity you will need.
+
+On-Demand - This is the default billing mode. Launch an instance and pay by the hour. This option is the best if you
+need instances for short amounts of time or if you cannot reliably predict the compute capacity you will need. It is the
+mode we will choose for our Bastion host since it will be shut down after our tests.
+
+Spot price - Cloud providers always have some leftover compute capacity thus they have created the Spot instances mode
+for that purpose. The price is variable and based on current demand. Let's say an instance costs a baseline of $0.50 per
+hour. You could choose to pay $0.20 for this instance and if no one is using it, then it is yours. But if anyone places
+$0.30 on that same instance or if no more compute capacity is available then it will terminate. This type of
+billing is useful for preemptible and non-critical jobs for instance, that is jobs that you can interrupt at any time and that are not time-constrained.
 
 _Region:_
-This is the different geographical places available to run your instances, since we choose to deploy our different	services in Singapore we will choose AP-Singapore.
 
-_AZ (Availibility Zone):_
-This is a subdivision of your region. Basically for reliability purposes, a cloud region is composed of différents datacenter placed in the same area. A datacenter = an Availibility Zone.
-For now we will choose Random since we do not care on which datacenter our Bastion is spawned since it’s in Singapore.
+This represents the available geographical locations for your instances. In our case, we will choose AP-Singapore.
+
+_AZ (Availability Zone):_
+
+An AZ is a subdivision of a Region. For reliability purposes a cloud region is composed of different datacenters placed
+in the same general area. A datacenter corresponds to one AZ. For now we will choose `Random` since the location of the Bastion is not important here.
 
 _CPU Architecture:_
-This depend of the cloud provider you are using, here on Huawei you have the choice between classical Intel instructions set x86 and the Kunpeng which run ARM instructions set.
-We will stick with a classical x86 cpu for now
+
+x86 is the historical platform for server computing. More and more workloads tend to natively support or to migrate to
+the more efficient ARM instruction sets. Huawei Cloud gives the choice between Intel x86 and home-made [Kunpeng](https://e.huawei.com/en/products/servers/kunpeng)
+ARM processors. We will stick with Intel's x86.
 
 _Flavor type:_
-This is the part were you’ll chose your “server”. Basically select the best ratio CPU/RAM/Price for your application.You’ll have the choice to select Processor based instances, memory based instances, balanced instances, etc depending of your needs and the price associated with them.For us it will be a classical balanced instances (t3.medium with 1CPU and 2Gb of RAM) since it’ll be used only to jump on other resources or to make some maintenance.
+
+This is where you customize your instance. Select the optimal CPU capacity, RAM capacity and Price for your application.You will have the choice between compute-optimized instances, memory-optimized instances, general purpose instances, etc. For us, a general purpose T6 with 1 vCPU and 2GB of RAM instance will do since it will be used to access other resources and for maintenance.
 
 _Security Group:_
-Security groups are composed of inbound and outbound rules to secure your instance.
-By default no one can talk to your instance, you’ll have to open flow so you can access it.For us we will access it threw SSH so we need to have an open port 22 in inbound.It’s the case with the default security group.
+
+Security groups contain inbound and outbound stateful network rules to secure your instance. This implies that any request which passes though your security group will be checked once and only once and if any rule matches the request, it and its response may be allowed to pass through. Security groups may be attached to one or multiple instances.
+
+By default, no one is allowed to talk to your instance; you will need to grant inbound accesses. For SSH, add an inbound rule opening port 22 to your IP. That is roughly the configuration of the default security group.
 
 _EIP:_
-This part permit us to attach an internet facing static ip address to our instance.It’s a mandatory part for us since we want to access this instance directly from the internet. We will stick with the default lowest values here.
+
+You can attach static IP addresses to your instances to make them addressable from the Internet. Use the lowest values for your Bastion host.
 
 _ECS Name:_
-The name of your instance on the Huawei console
 
-Know that all the topic are understand we can hit create !
+The name of your instance on the Huawei Cloud Console.
 
-[BASTION.JPG] 
+Know that all these steps are handled, hit create!
 
-### Part 2: The Database (PostgreSQL)
+[BASTION.JPG]
+
+## Part 2: The Database (PostgreSQL)
 
 To run, our application need a relational database.
 Like I said at the beginning of this blog post we want to use as many managed services as possible.Huawei let us use a service called RDS (Relational Database Service) to store our database on the cloud ! By clicking the RDS service then “Buy db instance”, You can create a new managed Postgresql.
@@ -124,7 +158,7 @@ When you RDS is up and running click on it from the console to familiarise yours
 
 [RDS.JPG]
 
-### Part 4: Redis
+## Part 4: Redis
 
 In addition with the relational DB we need a data structure store.
 For that you can use the Huawei DCS (Distributed Cache Service). For us it will be a Redis instance. 
@@ -139,7 +173,7 @@ When your cluster is up and running you can click on it and select Performance M
 [REDIS.JPG]
 
 
-### Part 5: Load Balancer
+## Part 5: Load Balancer
 
 Soon we will create our Kubernetes cluster. That means our application will be running on the cloud and we will to make it available to our clients.
 The best way to “open” our platform (which run on a private network if you remember) is to link it to a Load Balancer. This element will make a bridge between the external world and our infrastructure !
