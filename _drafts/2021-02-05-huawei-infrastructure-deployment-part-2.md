@@ -30,7 +30,7 @@ To upload your newly created image you can click on the “Upload threw client�
 
 After that you’ll see your image on the console and by clicking on it you’ll find a link to pull your newly uploaded image !
 
-[SWR.JPG]
+![Swr](/assets/img/posts/20210205/swr.png)
 
 ### Part 2: The Kubernetes Cluster
 
@@ -58,7 +58,7 @@ Let’s now review the different features the CCE cluster gives us !
 
 First you have the **Dashboard view**, it’s really useful to have a direct view of the health of your cluster with key metrics like CPU of your nodes or network monitoring. It is customisable and work out of the box !
 
-[DASHBOARD.JPG]
+![Dashboard](/assets/img/posts/20210205/dashboard.png)
 
 Earlier I’ve told you about a **Rancher like**. If you go to the Workloads tab you’ll see all your kubernetes internal resources and you have the ability to create / modify them directly from the interface ! It’s really useful when you want to easily debug a deployment for example or create a test workload from scratch.You can handle Deployments, Services, Secrets, etc !
 
@@ -67,4 +67,4 @@ Then you have the **charts tab**, this part allow you to integrate HELM charts d
 The last part is the **System Steward**, it was really new to me and it’s an amazing feature to debug your k8s cluster.Basically the System Check is a real time monitoring of all your nodes, it contain key information such as Diskpressure, Docker check, Restarted container etc !
 You have to take a look at it because it’s a really interesting implementation !
 
-[SYSTEM.JPG]
+![System](/assets/img/posts/20210205/system.png)

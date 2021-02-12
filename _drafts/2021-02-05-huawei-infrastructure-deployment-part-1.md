@@ -30,8 +30,7 @@ Here are the components that we are going to setup:
 - 1 Bastion host
 - Elastic IPs
 
-[INFRA_GLOBAL.PNG]
-
+![Global infrastructure](/assets/img/posts/20210205/infra_global.png)
 
 ### Why Huawei cloud?
 
@@ -67,13 +66,15 @@ Select a Region, a name for the VPC and a CIDR block. You can use the recommende
 
 > Hint: A /16 at the end of a CIDR block translates to 256 * 256 = 65,536 IP addresses.
 
+![VPC](/assets/img/posts/20210205/vpc.png)
+
 Go to `Advanced Settings` to create a default subnet.
 
 > We choose the default /24 CIDR block allowing us to use 256 IP addresses, which will be sufficient for our future
 > cluster. Keep in mind that it is good practice to split different services onto separate subnets; that is a standard
 > approach to handle security and reliability on Cloud infrastructures.
 
-[VPC.PNG]
+![Subnets](/assets/img/posts/20210205/subnets.png)
 
 ### NAT Gateway
 
@@ -147,7 +148,7 @@ The name of your instance on the Huawei Cloud Console.
 
 Know that all these steps are handled, hit create!
 
-[BASTION.JPG]
+![Bastion](/assets/img/posts/20210205/bastion.png)
 
 ## Part 2: The Database (PostgreSQL)
 
@@ -156,7 +157,7 @@ Like I said at the beginning of this blog post we want to use as many managed se
 For our use case we will use a PostgreSQL 11 in Singapore and use the Pay-per-use billing mode.The RDS service is quite customisable, you can choose 3 types of db (MySql, Postgresql and Microsoft SQL Server), Use a Primary/Standby infrastructure if you need highly available databases, select your instance type and it’s storage, the AZ, etc.
 When you RDS is up and running click on it from the console to familiarise yourself with the interface. As you can see you can create Read Replicas to reduce the load on your master, you can failover your master by using the Primary/Standby button, dynamically scale your storage and see all the informations that you need to connect to your instance.
 
-[RDS.JPG]
+![rds](/assets/img/posts/20210205/rds.png)
 
 ## Part 4: Redis
 
@@ -170,7 +171,7 @@ Here are the main ones:
 
 When your cluster is up and running you can click on it and select Performance Monitoring, this view is quite useful to have a better understanding of what is happening on your Redis.
 
-[REDIS.JPG]
+![Redis](/assets/img/posts/20210205/redis.png)
 
 
 ## Part 5: Load Balancer
