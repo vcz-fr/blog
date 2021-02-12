@@ -68,3 +68,23 @@ The last part is the **System Steward**, it was really new to me and it’s an a
 You have to take a look at it because it’s a really interesting implementation !
 
 ![System](/assets/img/posts/20210205/system.png)
+
+Congratulations, your application can be reached using the ip address of the load balancer and run on entirely Huawei managed services !
+
+
+### Conclusion
+
+I’ve never used the Huawei cloud before and I can think of a few things that I want to share with you.
+
+- The Huawei cloud is quite complete to handle a multitude of infrastructure use-case on Asia or South America.
+
+- It’s way easier to use and deploy services threw the console than with other cloud providers.
+
+- The services are globally cheaper than other cloud providers and you can use their coupon system to reduce even more your billing.
+
+- There is a lack of public documentation even if the support is really fast but not free ! So if you’re stuck, a simple google search of your error message will not help !
+
+- For now the Infra As Code approach is not really mature but they are actively working on it !
+
+During my project I used only a small amount of Huawei cloud services, take the time to discover them all it is worth it !
+This project was really interesting to deploy and I will definitely follow the evolution of this cloud threw years.
