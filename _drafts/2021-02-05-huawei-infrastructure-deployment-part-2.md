@@ -17,7 +17,7 @@ Before we begin, [check out the first part of the series](https://blog.vcz.fr/cl
 the base layer of our infrastructure. This second part concentrates on the different components needed by our
 applicative part to run on Huawei Cloud.
 
-### Part 1: Docker Repository
+## Part 1: Docker Repository
 
 To deploy our applicative stack on Kubernetes we will be using Docker containers. Those containers will need an image to
 run and we choose to store the images on a Huawei managed repository called **SWR (SoftWare Repository)**. A SWR will
@@ -36,14 +36,14 @@ image!
 
 ![SWR](/assets/img/posts/20210205/swr.png)
 
-### Part 2: The Kubernetes Cluster
+## Part 2: Kubernetes Cluster
 
 Deploy and maintain a vanilla kubernetes cluster can be really painful, that’s why cloud providers have created managed
 solution to handle things like master provisioning or rolling upgrade.The implementation of the Huawei managed
 kubernetes is really appreciable, it’s a mix of kubernetes, Rancher and Helm repository all implemented in one place and
 really easy to deploy. First lets review the Huawei CCE (Cloud Container Engine) cluster creation !
 
-#### Cluster creation:
+### Cluster creation
 After clicking on the “Buy CCE cluster” you have several step to choose. Right now 2 kubernetes versions are available
 (1.15 and 1.17), you can select the number of masters, 1 master will be cheaper but not highly available (if your master
 die your cluster will be unreachable) and 3 masters assure you a always available cluster.
@@ -55,7 +55,7 @@ After this step you have the add-ons. It’s a library of kubernetes packages th
 the console. You can for example enable horizontal pod autoscaler or Node autoscaling! When all this steps are filled
 you can create your cluster and go to the node management part !
 
-#### Node management
+### Node management
 
 On your CCE panel go to `Resource Management > Nodepools`. This feature allow you to create a pool of node of a certain
 type and attach it to your kubernetes cluster. It’s really useful if you want to mix several type of nodes, isolate
@@ -67,7 +67,7 @@ cluster is created and a node pool attached to it you can start deploying your k
 
 Let’s now review the different features the CCE cluster gives us !
 
-#### Features
+### Features
 
 First you have the **Dashboard view**, it’s really useful to have a direct view of the health of your cluster with key
 metrics like CPU of your nodes or network monitoring. It is customisable and work out of the box !
@@ -93,7 +93,7 @@ implementation !
 Congratulations, your application can be reached using the ip address of the load balancer and run on entirely Huawei
 managed services !
 
-### Conclusion
+## Conclusion
 
 I’ve never used the Huawei cloud before and I can think of a few things that I want to share with you:
 - The Huawei cloud is quite complete to handle a multitude of infrastructure use-case on Asia or South America;

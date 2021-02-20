@@ -59,7 +59,7 @@ _-VPC-_ with a single subnet in one Availability Zone _-AZ-_. Since our VPC is n
 create an [Elastic Cloud Server](https://www.huaweicloud.com/intl/en-us/product/ecs.html) _-ECS-_ instance and associate
 it with a private key and an [Elastic IP](https://www.huaweicloud.com/intl/en-us/product/eip.html).
 
-## Part I: The landing zone$
+## Part 1: The Landing zone
 
 ### VPC and Subnets
 
@@ -163,7 +163,7 @@ Now that all these steps are handled, hit create!
 
 ![Bastion](/assets/img/posts/20210205/bastion.png)
 
-## Part 2: The Database (PostgreSQL)
+## Part 2: PostgreSQL database
 
 Our application needs a managed relational database. For that matter, Huawei Cloud offers [RDS](https://www.huaweicloud.com/intl/en-us/product/pg.html),
 a service flavored for each supported database engine. By clicking the RDS service then “Buy DB instance”, you can
