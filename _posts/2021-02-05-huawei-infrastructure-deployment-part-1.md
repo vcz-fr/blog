@@ -63,7 +63,7 @@ it with a private key and an [Elastic IP](https://www.huaweicloud.com/intl/en-us
 
 ### VPC and Subnets
 
-You can create a VPC under `Virtual Private Cloud > Buy VPC` in the Huawei Console.
+You can create a VPC under `Virtual Private Cloud > Buy VPC` in the Huawei Cloud Console.
 Select a Region, a name for the VPC and a CIDR block. You can use the recommended VPCs to get started faster.
 
 > Hint: A /16 at the end of a CIDR block translates to 256 * 256 = 65,536 IP addresses.
@@ -212,7 +212,7 @@ balancers are provided free of charge.
 We will deploy a Shared load balancer. The service page presents several options such as:
 - The IP address to bind the load balancer to;
 - The billing mode: `Bandwith` for stable heavy traffic or `Traffic` for light or spiked traffic;
-- The bandwidth: 5Mbps to 2Gbps for Bandwith mode or 1Mbps to 300Mbps for Traffic mode.
+- The bandwidth: 5Mbps to 2Gbps for Bandwidth mode or 1Mbps to 300Mbps for Traffic mode.
 
 We would like users to access our applications deployed on Kubernetes. For that, we have multiple solutions to link our
 load balancer to our workloads:
