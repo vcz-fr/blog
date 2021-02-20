@@ -18,11 +18,11 @@ thanks for their consent to sharing this story here.
 As a Cloud Engineer at Gekko Part of Accenture, I am comfortable running complex infrastructure on AWS which provides
 datacenters all over the world. But in one project, a customer wished to replicate their infrastructure on a different
 Cloud provider, Huawei Cloud! I was only aware of the existence of Huawei hardware such as smartphones, computers and IT
-oriented products but not as a cloud provider so I decided to share my experience about running an app on Huawei Cloud
+oriented products but not as a Cloud provider so I decided to share my experience about running an app on Huawei Cloud
 using as many managed services as possible.
 
-> This topic will be divided into two blog posts: this one for the backbone infrastructure and the next will concentrate
-> on Kubernetes and the application.
+> This series will be divided into two parts: this one for the backbone infrastructure and the next will concentrate on
+> Kubernetes and the application.
 
 Here are the components that we are going to setup:
 - 1 VPC;
@@ -37,7 +37,7 @@ Here are the components that we are going to setup:
 
 ![Global infrastructure](/assets/img/posts/20210205/infra_global.png)
 
-### Why Huawei cloud?
+### Why Huawei Cloud?
 
 In this case the customer deployed a web application on AWS in France. For latency purposes they have decided to deploy
 the same application on a datacenter in Asia. They were leaning towards Huawei Cloud as it is generally less expensive
@@ -46,28 +46,24 @@ and contains the managed services they needed for their application to run.
 ### On Infrastructure As Code
 
 In this blog post I will not use Infrastructure As Code _-IaC-_, everything will be deployed through the web interface,
-called the Console. Nevertheless, there is a [community Terraform provider](https://github.com/huaweicloud/terraform-provider-huaweicloud)
-for Huawei Cloud. All the resources I need were not available on the provider during the course of the project. The
-first version of the provider was released the 18th of July, 2018 and it is updated often therefore it is possible the
-provider could be complete and usable for this project now!
+called the [Huawei Cloud Console](https://auth.huaweicloud.com/). Nevertheless, there is an actively developed [community Terraform provider](https://github.com/huaweicloud/terraform-provider-huaweicloud)
+for Huawei Cloud. All the resources I needed were not available during the course of this project. The first version of
+the provider has been released the 18th of July, 2018 and it receives frequent updates therefore it is possible the
+provider could be usable for this project by now!
 
 ### Here we go!
 
 It is time to build our application step by step. First, we need a Landing zone on our Huawei Cloud account to create
 the resources needed by our application. We will start by creating a [Virtual Private Cloud](https://www.huaweicloud.com/intl/en-us/product/vpc.html)
-(VPC) with a single subnet in one AZ. Since our VPC is not accessible from the internet we will create a
-bastion [Elastic Cloud Server](https://www.huaweicloud.com/intl/en-us/product/ecs.html) (ECS) instance and associate it with
-a private key and an [Elastic IP](https://www.huaweicloud.com/intl/en-us/product/eip.html).
+_-VPC-_ with a single subnet in one Availability Zone _-AZ-_. Since our VPC is not accessible from the Internet we will
+create an [Elastic Cloud Server](https://www.huaweicloud.com/intl/en-us/product/ecs.html) _-ECS-_ instance and associate
+it with a private key and an [Elastic IP](https://www.huaweicloud.com/intl/en-us/product/eip.html).
 
-You can find the Huawei console [here](https://auth.huaweicloud.com/).
-
-## Part I: The landing zone
-
-Let's start with the VPC, the base of our infrastructure.
+## Part I: The landing zone$
 
 ### VPC and Subnets
 
-You can create one under `Virtual Private Cloud > Buy VPC` in the Huawei Console.
+You can create a VPC under `Virtual Private Cloud > Buy VPC` in the Huawei Console.
 Select a Region, a name for the VPC and a CIDR block. You can use the recommended VPCs to get started faster.
 
 > Hint: A /16 at the end of a CIDR block translates to 256 * 256 = 65,536 IP addresses.
@@ -87,13 +83,13 @@ Go to `Advanced Settings` to create a default subnet.
 Our infrastructure needs a limited access to the outside world to update itself, etc. There is a service for that in
 the VPC panel: [NAT Gateway](https://www.huaweicloud.com/intl/en-us/product/nat.html), of the Public kind in this case. You
 only need to create a Public NAT Gateway and attach it to your private subnet. When this step is complete your
-Kubernetes cluster may be connected to the Internet!
+Kubernetes cluster will be able to reach out the Internet!
 
 Now that we have our first layer up and running we need to have the ability to access it and for that we will use a
 [Bastion host](https://en.wikipedia.org/wiki/Bastion_host).
 
 > Because our VPC is private, it is impossible to directly reach our subnet from the Internet. A bastion is an instance
-that will allow us to access our private network to operate on the infrastructure.
+> that will allow us to access our private network to operate on the infrastructure.
 
 Lets go to the ECS panel to launch our instance.
 
@@ -124,26 +120,26 @@ and that are not time-constrained.
 
 _Region:_
 
-This represents the available geographical locations for your instances. In our case, we will choose AP-Singapore.
+This represents the available geographical locations for your instances. In our case, we will choose "AP-Singapore".
 
 _AZ (Availability Zone):_
 
-An AZ is a subdivision of a Region. For reliability purposes a cloud region is composed of different datacenters placed
-in the same general area. A datacenter corresponds to one AZ. For now we will choose `Random` since the location of the
-Bastion is not important here.
+An AZ is a subdivision of a Region. For reliability purposes a Cloud region is composed of multiple datacenters placed
+in the same geographical area. A datacenter corresponds to one AZ. For now we will choose `Random` since the location of
+the Bastion is not important here.
 
 _CPU Architecture:_
 
 x86 is the historical platform for server computing. More and more workloads tend to natively support or to migrate to
 the more efficient ARM instruction sets. Huawei Cloud gives the choice between Intel x86 and home-made
-[Kunpeng](https://e.huawei.com/en/products/servers/kunpeng) ARM processors. We will stick with Intel's x86.
+[Kunpeng](https://e.huawei.com/en/products/servers/kunpeng) ARM processors. We will stick with Intel x86.
 
 _Flavor type:_
 
-This is where you customize your instance. Select the optimal CPU capacity, RAM capacity and Price for your
-application.You will have the choice between compute-optimized instances, memory-optimized instances, general purpose
-instances, etc. For us, a general purpose T6 with 1 vCPU and 2GB of RAM instance will do since it will be used to
-access other resources and for maintenance.
+This is where you customize your instance. Select the optimal CPU capacity, RAM capacity and Price for your application.
+You will have the choice between compute-optimized instances, memory-optimized instances, general purpose instances,
+etc. For us, a general purpose T6 instance with 1 vCPU and 2GB of RAM will do since it will be used to access other
+resources and for maintenance purposes.
 
 _Security Group:_
 
@@ -163,32 +159,32 @@ _ECS Name:_
 
 The name of your instance on the Huawei Cloud Console.
 
-Know that all these steps are handled, hit create!
+Now that all these steps are handled, hit create!
 
 ![Bastion](/assets/img/posts/20210205/bastion.png)
 
 ## Part 2: The Database (PostgreSQL)
 
-Our application needs a managed relational database, now. For that matter, Huawei Cloud has
-[RDS](https://www.huaweicloud.com/intl/en-us/product/pg.html), a service flavored for each supported database engine.
-By clicking the RDS service then “Buy db instance”, you can create a new managed PostgreSQL database.
+Our application needs a managed relational database. For that matter, Huawei Cloud offers [RDS](https://www.huaweicloud.com/intl/en-us/product/pg.html),
+a service flavored for each supported database engine. By clicking the RDS service then “Buy DB instance”, you can
+create a new managed PostgreSQL database.
 
-We will deploy PostgreSQL 11 in Singapore and use the "Pay-per-use" billing mode. RDS is quite customisable; there are
-3 database engines to choose from (MySQL, PostgreSQL and Microsoft SQL Server), Active-Passive High-availability
--failover database-, Read replicas, instance type, storage capacity, AZ, etc.
+We will deploy PostgreSQL 11 in Singapore and use the "Pay-per-use" billing mode. RDS is quite customizable; there are 3
+database engines to choose from (MySQL, PostgreSQL and Microsoft SQL Server), Active-Passive High-availability -failover
+database-, Read replicas, instance type, storage capacity, AZ, etc.
 
 When the database instance is up and running, select it in the Console to familiarize yourself with the interface. You
-can trigger a failover by using the Primary/Standby button, dynamically scale your storage and retrieve the connection information for your database.
+can trigger a failover by using the Primary/Standby button, dynamically scale your storage and retrieve the connection
+information for your database.
 
 ![rds](/assets/img/posts/20210205/rds.png)
 
 ## Part 3: Redis
 
 Key-value stores are a great way to keep around data generated from time-consuming operations and reduce load on your
-compute layer, your underlying database, your network, etc. This need can be covered by
-[DCS](https://www.huaweicloud.com/intl/en-us/product/dcs.html).
+compute layer, your underlying database, your network, etc. This need can be covered by [DCS](https://www.huaweicloud.com/intl/en-us/product/dcs.html).
 
-Here again when you click the “Buy DCS instance” button you will see a few settings to customize your key-value store,
+Again, when you click the “Buy DCS instance” button you will see a few settings to customize your key-value store,
 of which:
 - Cache engine: Redis or Memcached;
 - Instance performance;
@@ -222,7 +218,7 @@ We would like users to access our applications deployed on Kubernetes. For that,
 load balancer to our workloads:
 
 - Creating a Service configuration directly from the [CCE](https://www.huaweicloud.com/intl/en-us/product/cce.html)
-panel, under Resource Managment > Network > Services. From there, we can choose an existing load balancer. This is the
+panel, under `Resource Managment > Network > Services`. From there, we can choose an existing load balancer. This is the
 easier way to do it because your Kubernetes resources will automatically create listeners on your load balancer and
 deploy the related resources inside your cluster. Unfortunately, at the time of writing it is not possible to deploy
 your workloads from a YAML configuration or [Helm](https://helm.sh/) charts;
@@ -231,9 +227,8 @@ your workloads from a YAML configuration or [Helm](https://helm.sh/) charts;
 controller service to fill the `kubernetes.io/elb.*` annotations with the load balancer information;
 
 - Soon there will be a third method based on custom annotations, just like [service.beta.kubernetes.io/aws-load-balancer](https://kubernetes-sigs.github.io/aws-load-balancer-controller/guide/service/annotations/)
-for AWS. Progress for this method can be followed here.
+  for AWS.
 
 Congratulations, your application is ready to onboard its first Kubernetes pods and run entirely on Huawei Cloud
 managed services! In the next part, we will present the managed solution to run your application on a Huawei Cloud
 Kubernetes cluster.
-
