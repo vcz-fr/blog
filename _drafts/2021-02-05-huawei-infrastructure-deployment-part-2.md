@@ -2,10 +2,10 @@
 layout: blog
 
 title: "Deploying a complete infrastructure on the Huawei Cloud - Part 2"
-categories: ["Infrastructure"]
+categories: ["Cloud"]
 tags: ["huawei", "kubernetes"]
 
-date: "2021-02-05"
+date: "2021-02-12"
 ---
 
 ## Deploying a complete infrastructure on the Huawei Cloud - Part 2

@@ -2,7 +2,7 @@
 layout: blog
 
 title: "Deploying a complete infrastructure on Huawei Cloud"
-categories: ["Infrastructure"]
+categories: ["Cloud"]
 tags: ["huawei", "kubernetes"]
 
 date: "2021-02-05"
