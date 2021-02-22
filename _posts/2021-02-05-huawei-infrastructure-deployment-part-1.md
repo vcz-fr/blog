@@ -196,7 +196,6 @@ better understanding of what is happening on your new Redis cluster.
 
 ![Redis](/assets/img/posts/20210205/redis.png)
 
-
 ## Part 4: Load Balancer
 
 It is soon time for the Kubernetes cluster. That means our application will be available to our customers and receive

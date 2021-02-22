@@ -102,5 +102,5 @@ I have never explored Huawei Cloud before. Here are some of my key learnings:
   stuck then searching your error message will rarely help;
 - Infrastructure As Code is not mature enough but the community is actively working on it.
 
-During this project, I only relied on a handful of Huawei Cloud services. It will be wellÒ worth your time to discover them
+During this project, I only relied on a handful of Huawei Cloud services. It will be well worth your time to discover them
 all! This project was really interesting, I will definitely follow the evolution of this Cloud provider and encourage you to do so too!
