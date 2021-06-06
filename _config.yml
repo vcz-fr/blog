@@ -4,7 +4,7 @@ description: "Simplicity-powered blog from Vincenzo Scalzi - Web Performance Add
 
 permalink: "pretty"
 excerpt_separator: "<!-- READ MORE -->"
-paginate: 5
+paginate: 10
 paginate_path: "/all/:num"
 
 author:
@@ -15,6 +15,16 @@ author:
     username: vcz_fr
     card: summary
   github: vcz-fr
+
+kramdown:
+  input: GFM
+  highlighter: rouge
+
+defaults:
+  - scope:
+      path: _posts
+    values:
+      layout: blog
 
 plugins:
   - jekyll-sitemap

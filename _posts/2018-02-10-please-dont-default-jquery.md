@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Please don’t default to... jQuery"
 categories: ["Development"]
 tags: ["repost", "archive", "javascript", "jquery"]
-
-date: "2018-02-10"
 ---
 
 **Words of notice:** This is a slightly edited repost from an article I published on my previous blog.

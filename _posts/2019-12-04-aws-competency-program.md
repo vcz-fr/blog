@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "AWS Competency Program: a focus on excellence"
 categories: ["Cloud"]
 tags: ["repost", "gekko", "cloud", "aws", "re:invent"]
-
-date: "2019-12-04"
 ---
 
 **Words of notice:** This is an article I wrote for [Gekko](https://www.gekko.fr/). Many thanks for their consent to

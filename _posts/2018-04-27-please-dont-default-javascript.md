@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Please don’t default to... JavaScript"
 categories: ["Development"]
 tags: ["repost", "archive", "javascript"]
-
-date: "2018-04-27"
 ---
 
 **Words of notice:** This is a slightly edited repost from an article I published on my previous blog.

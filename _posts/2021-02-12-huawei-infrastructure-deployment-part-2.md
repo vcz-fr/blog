@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Deploying a complete infrastructure on the Huawei Cloud - Part 2"
 categories: ["Cloud"]
 tags: ["huawei", "kubernetes"]
-
-date: "2021-02-12"
 ---
 
 **Words of notice:** This is an article has been written by [Antoine Cavaillé](https://github.com/AntoineCavaille){:rel="nofollow"}.
@@ -26,9 +22,9 @@ from your Kubernetes cluster. To upload your newly created image, you can click 
 the upper right corner of the Console. The Console will generate temporary credentials for the SWR. You will then be
 able to tag and push your image like so:
 
-```bash
-docker tag [{Image Name}:{Tag name}] swr.ap-southeast-3.myhuaweicloud.com/{Organization Name}/{Image Name}:{Tag name}
-docker push swr.ap-southeast-3.myhuaweicloud.com/{Organization Name}/{Image Name}:{Tag name}
+```sh
+$> docker tag [${IMAGE_NAME}:${TAG_NAME}] swr.${REGION}.myhuaweicloud.com/${ORGANIZATION}/${IMAGE_NAME}:${TAG_NAME}
+$> docker push swr.$REGION.myhuaweicloud.com/${ORGANIZATION}/${IMAGE_NAME}:${TAG_NAME}
 ```
 
 After that you will see your image on the Console and by clicking on it you will find a link to pull it.

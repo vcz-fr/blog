@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Self-service FaaS infrastructure with Terraform"
 categories: ["Cloud"]
 tags: ["repost", "gekko", "terraform", "aws", "lambda", "faas"]
-
-date: "2019-10-28"
 ---
 
 **Words of notice:** This is an article I wrote for [Gekko](https://www.gekko.fr/). Many thanks for their consent to
@@ -180,7 +176,7 @@ resource from the root module.
 `outputs.tf` and `vars.tf` contain outputs and variable blocks and are always present, even if they are empty. This
 structure is common practice. `resource.tf` files are the interesting part of this architecture:
 
-```
+```terraform
 # infrastructure/modules/project/function_dependency/resource.tf
 locals {
   dir_path       = "../../../application/layers/${var.name}"
@@ -205,7 +201,7 @@ module "resource" {
 The project resource layer sets the software stack runtimes, generates the archive and creates a relationship between
 the layer name and the function dependency location.
 
-```
+```terraform
 # infrastructure/modules/global/aws_lambda-layer/resource.tf
 resource "aws_lambda_layer_version" "resource" {
   filename            = var.package
@@ -290,7 +286,7 @@ and a visualization tool for that purpose.
 
 Now that the infrastructure is covered, what would a custom Function and dependency look like?
 
-```
+```terraform
 module "lay-crud" {
   source = "../../modules/project/function_dependency"
   name = "crud"

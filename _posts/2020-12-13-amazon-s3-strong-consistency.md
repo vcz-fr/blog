@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Amazon S3: Consistency gets Strong"
 categories: ["Cloud"]
 tags: ["repost", "gekko", "aws", "re:invent"]
-
-date: "2020-12-13"
 ---
 
 **Words of notice:** This is an article I wrote for [Gekko](https://www.gekko.fr/). Many thanks for their consent to

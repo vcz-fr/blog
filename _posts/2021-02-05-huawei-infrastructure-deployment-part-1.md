@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Deploying a complete infrastructure on Huawei Cloud"
 categories: ["Cloud"]
 tags: ["huawei", "kubernetes"]
-
-date: "2021-02-05"
 ---
 
 **Words of notice:** This is an article has been written by [Antoine Cavaillé](https://github.com/AntoineCavaille){:rel="nofollow"}.

@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "AWS Proton: A DevOps delight"
 categories: ["Cloud"]
 tags: ["repost", "gekko", "devops", "aws", "re:invent"]
-
-date: "2020-12-02"
 ---
 
 **Words of notice:** This is an article I wrote for [Gekko](https://www.gekko.fr/). Many thanks for their consent to

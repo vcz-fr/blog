@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "EC2 Image builder: building EC2 AMIs the AWS way"
 categories: ["Cloud"]
 tags: ["repost", "gekko", "cloud", "aws", "re:invent"]
-
-date: "2019-12-02"
 ---
 
 **Words of notice:** This is an article I wrote for [Gekko](https://www.gekko.fr/). Many thanks for their consent to

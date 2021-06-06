@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Well, the migration went well!"
 categories: ["Development"]
 tags: ["repost", "archive", "php", "legacy", "migration", "engineering"]
-
-date: "2018-08-22"
 ---
 
 **Words of notice:** This is a slightly edited repost from an article I published on my previous blog.

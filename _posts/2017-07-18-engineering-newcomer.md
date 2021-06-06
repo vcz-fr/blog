@@ -1,11 +1,7 @@
 ---
-layout: blog
-
 title: "Engineering, seen by a newcomer"
 categories: ["Society"]
 tags: ["repost", "archive"]
-
-date: "2017-07-18"
 ---
 
 **Words of notice:** This is a slightly edited repost from an article I published on my previous blog.
