@@ -3,20 +3,20 @@ layout: default
 ---
 
 <div class="card">
-    <h1>{{page.title}}</h1>
+    <h1>{{ page.title }}</h1>
 
     <p>
-        Posted on {{page.date | date: "%A %B %d, %Y"}}<br>
+        Posted on {{ page.date | date: "%A %B %d, %Y" }}<br>
         Category: 
         {% for category in page.categories %}
-            <a href="/categories/{{category | slugify}}">{{category}}</a>
+            <a href="/categories/{{category | slugify}}">{{ category }}</a>
         {% endfor %}<br>
-        Tags: <b>{{page.tags | sort | join: "</b> ; <b>"}}</b>
+        Tags: <b>{{ page.tags | sort | join: "</b> ; <b>" }}</b>
     </p>
     <p>
         <span class="purple">Next:</span>
         {% if page.next.url %}
-        <a href="{{page.next.url}}">{{page.next.title}}</a>
+        <a href="{{page.next.url}}">{{ page.next.title }}</a>
         {% else %}
         <span>You have reached the end&hellip;</span>
         {% endif %}
@@ -25,7 +25,7 @@ layout: default
 
         <span class="purple">Previous:</span>
         {% if page.previous.url %}
-        <a href="{{page.previous.url}}">{{page.previous.title}}</a>
+        <a href="{{page.previous.url}}">{{ page.previous.title }}</a>
         {% else %}
         <span>You have reached the beginning&hellip;</span>
         {% endif %}
