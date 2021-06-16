@@ -30,6 +30,10 @@ layout: default
         <span>You have reached the beginning&hellip;</span>
         {% endif %}
     </p>
+    <p>
+        {%- assign reading_time = page.content | number_of_words | divided_by: 170.0 | ceil -%}
+        ⏱ Estimated reading time: {{ reading_time }} minute{% if reading_time > 1 %}s{% endif %}
+    </p>
 </div>
 
 <div class="card" id="article">
