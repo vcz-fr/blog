@@ -1,7 +1,7 @@
 ---
 title: "And so I started using an Ad Blocker"
-categories: ["Society"]
-tags: ["web", "tools"]
+categories: ["Tools"]
+tags: ["web", "tracking", "ads"]
 ---
 
 _Edit (14th of July 2020):_ Allow rules in uBlock Origin's Dynamic Filtering feature have been hidden[^1] due to them being
