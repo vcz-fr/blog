@@ -50,7 +50,7 @@ expensive products or services or, even worse, you could end up paying more for 
 ## Simply outrageous! What can I do?
 
 If you follow this blog closely, I already gave one piece of advice that has to deal with URLs: using a [content blocker]({%
-post_url 2020-06-03-started-using-adblocker %}) to reduce your digital footprint and declutter your web experience but
+post_url 2020/2020-06-03-started-using-adblocker %}) to reduce your digital footprint and declutter your web experience but
 this does nothing outside of the realm of your browser. Think apps, games, OS. Content blockers do not apply to these
 services. The clutter is still present, if not worse! In ["Reduce, Reuse, Recycle"](https://www.epa.gov/recycle){:rel="nofollow"},
 there is a will to consume what you need, when you need it and transform it afterwards. **Reduce** should always be your
