@@ -1,8 +1,7 @@
 url: "https://blog.vcz.fr"
-name: "VCZ Blog"
+title: "VCZ Blog"
 description: "Simplicity-powered blog from Vincenzo Scalzi - Web Performance Addict && Engineer"
 
-permalink: "pretty"
 excerpt_separator: "<!-- READ MORE -->"
 paginate: 10
 paginate_path: "/all/:num"
@@ -16,6 +15,8 @@ author:
     card: summary
   github: vcz-fr
 
+# Build settings
+markdown: kramdown
 kramdown:
   input: GFM
   highlighter: rouge
