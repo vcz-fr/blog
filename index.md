@@ -25,7 +25,7 @@ appreciate. I can only hope you will like it as I will never add any third party
 enjoy the contents, come by [the place that hosts it](https://github.com/vcz-fr/blog){:rel="nofollow"} and leave your
 mark. Or check out my [personal website](https://vcz.fr), my [Meetup notes](https://meetups.vcz.fr) or my [apps](https://apps.vcz.fr).
 
-Do not forget to [leave some feedback](https://apps.vcz.fr/feedback/?appid=DW7RbJ8FWHm5) so that I can make your
+Do not forget to [leave some feedback](https://apps.vcz.fr/app/feedback/?appid=DW7RbJ8FWHm5) so that I can make your
 experience better.
 
 Have a nice visit!
