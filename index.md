@@ -2,8 +2,7 @@
 layout: default
 ---
 
-<div class="card">
-{%- capture text -%}
+<div class="card" markdown="1">
 
 # The blogging craze had me too
 
@@ -30,12 +29,10 @@ experience better.
 
 Have a nice visit!
 
-{%- endcapture -%}
-{{ text | markdownify }}
 </div>
 
-<div class="card preview">
-{%- capture text -%}
+<div class="card preview" markdown="1">
+
 ## Latest post: [{{ site.posts.first.title }}]({{ site.posts.first.url }})
 
 Posted {{ site.posts.first.date | date: "%A %B %d, %Y" }}
@@ -43,6 +40,5 @@ Posted {{ site.posts.first.date | date: "%A %B %d, %Y" }}
 > {{site.posts.first.excerpt | strip_html | truncatewords: 100}}
 
 _[Read more]({{ site.posts.first.url }})&hellip;_
-{%- endcapture -%}
-{{ text | markdownify }}
+
 </div>
