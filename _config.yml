@@ -27,6 +27,10 @@ defaults:
     values:
       layout: blog
 
+sass:
+  sourcemap: never
+  style: compressed
+
 plugins:
   - jekyll-sitemap
   - jekyll-feed
